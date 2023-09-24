@@ -1,0 +1,325 @@
+@import url(https://fonts.googleapis.com/css?family=Monoton|Raleway:600,900|Arvo);
+/* Still experimenting with different colorschemes... */
+.nopre * {
+  transition: none !important;
+  /* to prevent animations while rendering the page */
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  background: #0a5d61;
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  position: absolute;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 0px;
+}
+
+#container {
+  width: 100%;
+  height: 100%;
+  margin-top: 0%;
+  margin-left: -50%;
+  overflow: hidden;
+  position: relative;
+  left: 0px;
+}
+#container.left #left {
+  width: 85%;
+}
+#container.left #left > span {
+  bottom: 35%;
+  font-size: 8em;
+}
+#container.left #left .content {
+  transform: rotate(22.1deg) translateX(0%);
+}
+#container.left .rainbow {
+  transform: perspective(200px) rotateY(20deg) translateX(1%);
+}
+#container.left #right {
+  width: 15%;
+}
+#container.left #right > span {
+  top: 35%;
+  font-size: 4em;
+}
+#container.left #right .content {
+  transform: rotate(22.1deg) translateX(100%);
+}
+#container.left #right > ul {
+  visibility: visible;
+  pointer-events: auto;
+  /* bottom: 40%; */
+}
+#container.left #right > ul > li {
+  opacity: 1;
+  transform: translateX(0%);
+}
+#container.right #right {
+  width: 85%;
+}
+#container.right #right > span {
+  top: 66%;
+  font-size: 8em;
+}
+#container.right #right .content {
+  transform: rotate(22.1deg) translateX(-12%);
+}
+#container.right #left {
+  width: 15%;
+}
+#container.right #left > span {
+  bottom: 66%;
+  font-size: 4em;
+}
+#container.right #left > ul {
+  visibility: visible;
+  pointer-events: auto;
+  /* bottom: 40%; */
+}
+#container.right #left > ul > li {
+  opacity: 1;
+  transform: translateX(0%);
+}
+
+#left,
+#right {
+  width: 50%;
+  height: 100%;
+  padding: 40% 0;
+  margin: -40% 0;
+  transform: rotate(-22.1deg);
+  transition: all 0.3s ease-in-out;
+  display: block;
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+}
+#left > span,
+#right > span {
+  font-size: 6em;
+  font-family: Monoton, Impact, sans-serif;
+  display: inline-block;
+  position: absolute;
+  width: 0.71em;
+  height: 1em;
+  margin: -0.5em 0;
+  transition: all 0.3s ease-in-out;
+  transform: rotate(22.1deg);
+  z-index: 3;
+}
+#left .content,
+#right .content {
+  width: 70%;
+  height: 36%;
+  position: absolute;
+  top: 30%;
+  left: 24%;
+  transform: rotate(22.1deg) translateX(-200%);
+  text-align: left;
+  transition: transform 0.3s ease-in-out;
+}
+#left .content h1,
+#left .content h1:after,
+#right .content h1,
+#right .content h1:after {
+  font: 600 1.5em/1 "Raleway", sans-serif;
+  color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  font-weight: 900;
+  color: #efedce;
+  white-space: nowrap;
+  display: inline-block;
+  position: relative;
+  letter-spacing: 0.1em;
+  padding: 0.2em 0 0.25em 0;
+}
+#left .content h1,
+#right .content h1 {
+  font-size: 4em;
+  z-index: 100;
+  text-shadow: 0.04em 0.04em 0 #102c57;
+  margin: 0 0 0.01em 0;
+}
+#left .content h1:after,
+#right .content h1:after {
+  content: attr(data-shadow-text);
+  color: #11232e;
+  text-shadow: none;
+  font-size: 1em;
+  position: absolute;
+  left: 0.0875em;
+  top: 0.0875em;
+  z-index: -1;
+  mask-image: url(https://f.cl.ly/items/1t1C0W3y040g1J172r3h/mask.png);
+}
+#left .content p,
+#left .content ul,
+#left .content td,
+#right .content p,
+#right .content ul,
+#right .content td {
+  color: #efedce;
+  font-family: Raleway;
+}
+#left .content p,
+#right .content p {
+  margin-top: 0;
+}
+#left > ul,
+#right > ul {
+  position: absolute;
+  z-index: 1;
+  bottom: 40%;
+  transform: perspective(300px) rotateY(-41deg) translateX(0);
+  transform-origin: 0% 50%;
+  list-style: none;
+  padding-left: 0;
+  pointer-events: none;
+}
+#left > ul li,
+#right > ul li {
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transform: translateX(150%);
+  opacity: 0;
+  background: #102c57;
+}
+#left > ul li.second,
+#right > ul li.second {
+  transition-delay: 0.1s;
+}
+#left > ul li.third,
+#right > ul li.third {
+  transition-delay: 0.2s;
+}
+#left > ul li a,
+#right > ul li a {
+  display: block;
+  color: #efedce;
+  margin-bottom: 0.5em;
+  padding: 0.5em 2em 0.5em 0.5em;
+  background-color: #102c57;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 2em;
+  font-family: Arvo, Arial, sans-sarif;
+  transition: all 0.2s ease-in-out;
+  background-image: linear-gradient(90deg, #0a5d61, transparent);
+}
+#left > ul li a:hover,
+#right > ul li a:hover {
+  background-image: linear-gradient(90deg, transparent, #11232e);
+  color: #ffe;
+}
+
+#left {
+  float: left;
+  text-align: right;
+  background-color: #102c57;
+  color: #efedce;
+  padding-left: 20%;
+  margin-left: -20%;
+}
+#left,
+#left > * {
+  transform-origin: 100% 50% !important;
+}
+#left > span {
+  right: 0;
+  bottom: 50%;
+}
+#left > ul {
+  right: -1px;
+  transform: perspective(300px) rotateY(41deg) translateX(0);
+}
+#left > ul li {
+  transform: translateX(-150%);
+  background: transparant;
+  border-right: solid #21111b 1px;
+}
+#left > ul li a {
+  padding: 0.5em 0.5em 0.5em 4em;
+  color: #21111b;
+  background-color: #0a5d61;
+  background-image: linear-gradient(90deg, transparent, #efedce);
+}
+#left > ul li a:hover {
+  background-color: #f27b3a;
+  background-image: linear-gradient(90deg, transparent, #efedce);
+  color: #11232e;
+}
+#left .rainbow {
+  background-image: linear-gradient(
+    #d9b036 25%,
+    #d96b2b 25%,
+    #d96b2b 50%,
+    #731702 50%,
+    #731702 75%,
+    #400707 75%
+  );
+  position: absolute;
+  width: 100%;
+  height: 5%;
+  border: #efedce 1em solid;
+  border-width: 1em 0;
+  transform: perspective(200px) rotateY(20deg) translateX(100%);
+  top: 30%;
+  right: 0px;
+  transform-origin: 100% 50%;
+  transition: all 0.3s ease-in-out;
+}
+#left .rainbow.left {
+  left: 0px;
+  right: auto;
+  transform: perspective(200px) rotateY(0deg);
+  transform-origin: 100% 50%;
+}
+
+#right {
+  float: right;
+  text-align: left;
+  background-color: #efedce;
+  color: #0a5d61;
+  padding-right: 20%;
+  margin-right: -20%;
+}
+#right,
+#right > * {
+  transform-origin: 0% 50%;
+}
+#right > span {
+  text-indent: -0.05em;
+  top: 50%;
+}
+#right > ul li {
+  margin-left: -2px;
+  border-left: solid 1px #366;
+}
+#right .content {
+  top: 40%;
+  width: 60%;
+  transform: rotate(22.1deg) translateX(200%);
+}
+#right .content h1 {
+  color: #102c57;
+}
+#right .content h1 {
+  text-shadow: 0.04em 0.04em 0 #efedce;
+}
+#right .content h1:after {
+  color: #f27b3a;
+}
+#right .content p {
+  color: #21111b;
+}
